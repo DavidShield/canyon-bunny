@@ -1,6 +1,8 @@
 # canyon-bunny-template
 
-This is a demo or test that enable libgdx input detector and OrthographicCamera
+used an UML class diagram to structure the game into manageable and logical pieces
+
+enable libgdx input detector and OrthographicCamera
  w a s d to move selected sprite
  left up right down to move camera
  comma to zoom in
