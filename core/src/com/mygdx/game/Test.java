@@ -10,6 +10,7 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.MathUtils;
+import com.badlogic.gdx.assets.AssetManager;
 
 public class Test extends ApplicationAdapter {
 //	SpriteBatch batch;
@@ -36,6 +37,9 @@ public class Test extends ApplicationAdapter {
         // set libgdx log level to debug
         // need to change to log_none or log_info before publishing game
         Gdx.app.setLogLevel(Application.LOG_DEBUG);
+
+        // Load assets
+        Assets.instance.init(new AssetManager());
 
         // initialize controller and renderer
         worldController = new WorldController();
@@ -74,6 +78,7 @@ public class Test extends ApplicationAdapter {
 //		texture.dispose();
 
         worldRenderer.render();
+        Assets.instance.dispose();
 	}
 
 	@Override
