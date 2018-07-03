@@ -1,5 +1,14 @@
 # canyon-bunny
 
+develope an android game similar to "super mario" based on the book 
+https://www.packtpub.com/game-development/learning-libgdx-game-development-second-edition
+
+no desktop and ios code.
+
+## System requirement
+ JDK 7+
+ 
+ android build gradle 2.3.3
 
 ## Libgdx setup app
     https://libgdx.badlogicgames.com/download.html
