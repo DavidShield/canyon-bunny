@@ -2,6 +2,7 @@ package com.mygdx.game;
 
 import com.badlogic.gdx.Application;
 import com.badlogic.gdx.ApplicationAdapter;
+import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -11,7 +12,22 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.assets.AssetManager;
+import com.mygdx.game.screens.MenuScreen;
 
+
+public class Test extends Game {
+    @Override
+    public void create () {
+        // Set Libgdx log level 
+        Gdx.app.setLogLevel(Application.LOG_DEBUG);
+        // Load assets
+        Assets.instance.init(new AssetManager());
+        // Start game at menu screen
+        setScreen(new MenuScreen(this));
+    }
+}
+
+/*
 public class Test extends ApplicationAdapter {
 //	SpriteBatch batch;
 //	Texture img;
@@ -96,3 +112,4 @@ public class Test extends ApplicationAdapter {
         paused = false;
     }
 }
+*/

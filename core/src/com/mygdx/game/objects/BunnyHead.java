@@ -8,7 +8,9 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.mygdx.game.Assets;
+import com.mygdx.game.util.CharacterSkin;
 import com.mygdx.game.util.Constants;
+import com.mygdx.game.util.GamePreferences;
 
 public class BunnyHead extends AbstractGameObject {
 
@@ -108,6 +110,9 @@ public class BunnyHead extends AbstractGameObject {
     @Override
     public void render (SpriteBatch batch) {
         TextureRegion reg = null;
+
+        // Apply Skin Color
+        batch.setColor(CharacterSkin.values()[GamePreferences.instance.charSkin] .getColor());
 
         // Set special color when game object has a feather power-up
         if (hasFeatherPowerup) {

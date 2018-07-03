@@ -1,6 +1,7 @@
 package com.mygdx.game;
 
 import com.badlogic.gdx.Application;
+import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Pixmap.Format;
@@ -12,6 +13,7 @@ import com.mygdx.game.objects.BunnyHead;
 import com.mygdx.game.objects.Feather;
 import com.mygdx.game.objects.GoldCoin;
 import com.mygdx.game.objects.Rock;
+import com.mygdx.game.screens.MenuScreen;
 import com.mygdx.game.util.CameraHelper;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.utils.Array;
@@ -36,7 +38,8 @@ public class WorldController extends InputAdapter{
 
     private float timeLeftGameOverDelay;
 
-    public WorldController() {
+    public WorldController(Game game) {
+        this.game = game;
         init();
     }
 
@@ -58,7 +61,7 @@ public class WorldController extends InputAdapter{
         handleDebugInput(deltaTime);
         if (isGameOver()) {
             timeLeftGameOverDelay -= deltaTime;
-            if (timeLeftGameOverDelay < 0) init();
+            if (timeLeftGameOverDelay < 0) backToMenu();
         } else {
             handleInputGame(deltaTime);
         }
@@ -87,6 +90,13 @@ public class WorldController extends InputAdapter{
             cameraHelper.setTarget(cameraHelper.hasTarget() ? null: level.bunnyHead);
             Gdx.app.debug(TAG, "Camera follow enabled: " + cameraHelper.hasTarget());
         }
+        // Back to Menu
+        else if (keycode == Keys.B || keycode == Keys.BACK) {
+            Gdx.app.debug(TAG, "escape is touched!");
+            backToMenu();
+        }
+        else
+            Gdx.app.debug(TAG, keycode + " is touched!");
 //        else if(keycode == Keys.SPACE) {
 //            selectedSprite = (selectedSprite + 1) % testSprites.length;
 //            // Update camera's target to follow the currently
@@ -304,6 +314,13 @@ public class WorldController extends InputAdapter{
 
     public boolean isPlayerInWater () {
         return level.bunnyHead.position.y < -5;
+    }
+
+    private Game game;
+
+    private void backToMenu () {
+        // switch to menu screen
+        game.setScreen(new MenuScreen(game));
     }
 //    private void updateTestObjects(float deltaTime) {
 //        // Get current rotation from selected sprite
