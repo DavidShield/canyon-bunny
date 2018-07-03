@@ -1,6 +1,6 @@
 # canyon-bunny
 
-develope an android game similar to "super mario" refer to the book 
+develope an android game similar to "super mario" referring to the book 
 
 https://www.packtpub.com/game-development/learning-libgdx-game-development-second-edition
 
