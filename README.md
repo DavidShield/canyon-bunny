@@ -1,5 +1,9 @@
-# canyon-bunny-template
+# canyon-bunny
 
+
+## Libgdx setup app
+    https://libgdx.badlogicgames.com/download.html
+    
 used an UML class diagram to structure the game into manageable and logical pieces
 
 enable libgdx input detector and OrthographicCamera
